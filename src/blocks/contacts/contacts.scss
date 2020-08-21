@@ -1,0 +1,115 @@
+.contacts {
+    background-image: url(../img/Слой-25.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 100px 0;
+    &:before {
+        content: "";
+        background-color: rgba(32, 31, 31, 0.8);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__container {
+        z-index: 10;
+        position: relative;
+        @include container();
+        display: flex;
+        @include lg(flex-direction, column);
+    }
+    &__info {
+        @include size(4);
+        @include size-lg(12);
+        @include lg(width, 100%);
+        b {
+            font-size: 25px;
+            font-family: $mb;
+            display: block;
+            margin-bottom: 65px;
+        }
+        ul {
+            @include lg(display, flex);
+            @include md(flex-direction, column);
+            li {
+                font-size: 16px;
+                line-height: 22px;
+                font-family: $mr;
+                margin-bottom: 45px;
+                display: flex;
+                align-items: center;
+                @include lg(margin-right, 10px);
+                @include md(margin-right, 0);
+
+                i {
+                    color: $blue;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    &__form {
+        @include size(8);
+        @include size-lg(12);
+        @include lg(width, 100%);
+        b {
+            font-size: 25px;
+            font-family: $mb;
+            display: block;
+            margin-bottom: 65px;
+        }
+        .form {
+            &__group {
+                display: flex;
+                @include md(flex-direction, column);
+            }
+            &__input,
+            &__textarea {
+                outline: none;
+                padding: 15px 10px;
+                border: 1px solid #fff;
+                background-color: rgba(0, 0, 0, 0);
+                margin-right: 20px;
+                margin-bottom: 30px;
+                color: #fff;
+                width: 100%;
+                box-sizing: border-box;
+                &::placeholder {
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+                &:focus {
+                    border: 1px solid $blue;
+                }
+            }
+            &__textarea {
+                height: 200px;
+            }
+            &__reply {
+                margin-top: 40px;
+                @include sm(display, flex);
+                @include sm(flex-direction, column);
+
+                p {
+                    font-size: 20px;
+                    line-height: 28px;
+                    font-family: $mr;
+                }
+            }
+        }
+    }
+}
+
+.form__reply .button.button--aylen {
+    margin-top: 0;
+    font-size: 18px;
+    line-height: 18px;
+    font-family: $mb;
+    margin: 0;
+    margin-right: 60px;
+    cursor: pointer;
+    @include md(margin, 0);
+    @include md(margin-bottom, 20px);
+}

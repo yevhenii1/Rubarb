@@ -1,0 +1,44 @@
+.services {
+    position: relative;
+    z-index: 10;
+    background-color: #f4f4f4;
+    color: #000;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    &__container {
+        @include container();
+        justify-content: space-between;
+        @include lg(justify-content, normal);
+        @include lg(flex-direction, column);
+        @include lg(text-align, center);
+    }
+    &__item {
+        @include lg(margin-bottom, 40px);
+        &-image {
+            margin-bottom: 40px;
+            height: 220px;
+            @include lg(margin-bottom, 20px);
+        }
+        &-description {
+            @include lg(justify-content, center);
+            b {
+                font-size: 100px;
+                line-height: 80px;
+                font-family: $mb;
+            }
+        }
+        &-text {
+            margin-left: 40px;
+            span {
+                font-family: $mb;
+                font-size: 30px;
+                display: block;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+}

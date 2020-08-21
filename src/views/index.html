@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>gulp-scss-starter</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="../img/favicons/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="../img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="../img/favicons/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="../img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://kit.fontawesome.com/5d4f4b4293.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="page">
+        @@include("../blocks/modules/header/header.html")
+
+        @@include("../blocks/banner/banner.html")
+        @@include("../blocks/textBlock/textBlock.html")
+        @@include("../blocks/services/services.html")
+        @@include("../blocks/posters/posters.html")
+        @@include("../blocks/contacts/contacts.html")
+
+
+
+        @@include("../blocks/modules/footer/footer.html")
+        <div class="fixed-bg">
+            <div class="social">
+                <ul class="d-flex">
+                    <li><span>Share</span></li>
+                    <li ><a class="social__link" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li ><a class="social__link" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@1.11,npm/midnight.js@1.1"></script>
+    <script>
+        objectFitImages();
+
+
+
+        $(document).ready(function () {
+            // Change this to the correct selector for your nav.
+            $('.fixed-bg').midnight();
+            $('.fixed-bg').css("bottom", "20px");
+            $('.fixed-bg').css("right", "30px");
+            $('.fixed-bg').css("top", "auto");
+            $('.fixed-bg').css("left", "auto");
+            $('.fixed-bg').css("width", "50px");
+            $('.fixed-bg').css("z-index", "1000");
+            $('.fixed-bg').css("overflow", "visible");
+            $('.fixed-bg').css("height", "200px");
+
+
+            var StickyElement = function (node) {
+                // debugger
+                var doc = $(document),
+                    fixed = false,
+                    anchor = node.find('.sticky-anchor'),
+                    content = node.find('.text-block__header-image');
+
+                var onScroll = function (e) {
+                    // debugger
+                    var docTop = doc.scrollTop(),
+                        anchorTop = anchor.offset().top;
+
+                    // console.log('scroll', docTop, anchorTop);
+                    if (docTop > anchorTop) {
+                        if (!fixed) {
+                            anchor.height(content.outerHeight());
+                            content.addClass('fixed');
+                            fixed = true;
+                        }
+                    } else {
+                        if (fixed) {
+                            anchor.height(0);
+                            content.removeClass('fixed');
+                            content.css("bottom", "unset");
+                            fixed = false;
+                        }
+                    }
+                    if (docTop > 1900) {
+                        if (fixed) {
+                            content.removeClass('fixed');
+                            content.css("bottom", "120px");
+                            fixed = false;
+                        }
+                    }
+                };
+
+                $(window).on('scroll', onScroll);
+            };
+
+            var demo = new StickyElement($('#sticky'));
+
+        });
+
+
+
+
+    </script>
+
+
+
+    <script src="js/main.js"></script>
+
+    <!-- <script src="../js/main/bacg.js"></script>
+    <script>
+     
+    // Check all elements with a .target class against all images on a page
+    BackgroundCheck.init({
+        targets: '.your-favorite-imaget'
+    });
+
+    // Specific images
+    BackgroundCheck.init({
+        targets: '.your-favorite-image',
+        images: '.your-favorite-image'
+    });
+    </script> -->
+
+    <!-- <script src="js/vendor.js"></script> -->
+
+</body>
+
+</html>

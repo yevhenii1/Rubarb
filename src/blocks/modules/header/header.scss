@@ -1,0 +1,163 @@
+.header {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    border-bottom: 1px solid #2e2e2e;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    &__container {
+        align-items: center;
+        justify-content: space-between;
+        @include lg(justify-content, space-around);
+        @include sm(justify-content, normal);
+    }
+    &__logo {
+        margin-left: 30px;
+        margin-right: 10px;
+        @include xlg(margin-left, 15px);
+        @include xlg(width, 80px);
+        img {
+            width: 100%;
+        }
+    }
+    &__call,
+    &__language {
+        color: $blue;
+        font-size: 15px;
+        font-family: $mr;
+        letter-spacing: 0.5px;
+        @include xlg(display, flex);
+        @include xlg(flex-direction, column);
+    }
+    &__call {
+        margin-right: 40px;
+        @include xlg(margin-right, 10px);
+        span {
+            margin-right: 14px;
+            @include xlg(margin-right, 0);
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    &__language {
+        margin-right: 35px;
+        @include xlg(margin-right, 15px);
+        span {
+            display: inline-block;
+            padding-right: 14px;
+            margin-right: 14px;
+            position: relative;
+            text-transform: uppercase;
+            @include xlg(margin-right, 0);
+            @include xlg(padding-right, 0);
+            &:after {
+                content: "";
+                position: absolute;
+                height: 16px;
+                width: 1px;
+                background-color: $blue;
+                right: 0;
+                @include xlg(display, none);
+            }
+        }
+    }
+}
+.main-nav {
+    &__lists {
+        @include lg(width, 100%);
+        @include lg(flex-direction, column);
+        @include lg(left, 0);
+        @include lg(top, 70px);
+        @include lg(background-color, $black);
+        @include lg(text-align, center);
+        @include lg(padding, 20px 0);
+    }
+    &__list {
+        margin-right: 50px;
+        position: relative;
+        @include xlg(margin-right, 20px);
+        @include lg(margin-right, 0);
+        @include lg(margin-bottom, 20px);
+    }
+    &__link {
+        color: #fff;
+        text-transform: uppercase;
+        @include lg(font-size, 20px);
+        &:hover {
+            &:after {
+                content: "";
+                width: 70px;
+                height: 1px;
+                background-color: $yellow;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+                bottom: -39px;
+                @include xlg(bottom, -28px);
+                @include lg(position, static);
+            }
+        }
+        &:focus {
+            color: $yellow;
+        }
+    }
+}
+
+#toggle {
+    width: 40px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    display: none;
+    @include lg(display, flex);
+    span {
+        position: relative;
+        display: block;
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -9px;
+        }
+        &:after {
+            top: 9px;
+        }
+    }
+    span,
+    span:before,
+    span:after {
+        width: 20px;
+        height: 2px;
+        background-color: $white;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+}
+
+/* on activation */
+#toggle.on span {
+    background-color: transparent;
+}
+#toggle.on span:before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#toggle.on span:after {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+#toggle.on + #menu {
+    z-index: 1000;
+    display: flex;
+}
+#menu {
+    @include lg(position, absolute);
+    @include lg(display, none);
+}

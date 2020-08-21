@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Geometria-Regular";
+  src: url("../fonts/Geometria/Geometria-Regular/Geometria-Regular.woff2") format("woff2"),
+    url("../fonts/Geometria/Geometria-Regular/Geometria-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geometria-Light";
+  src: url("../fonts/Geometria/Geometria-Light/Geometria-Light.woff2") format("woff2"),
+    url("../fonts/Geometria/Geometria-Light/Geometria-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadPro-Regular";
+  src: url("../fonts/MariadPro/MariadPro-Regular/MyriadPro.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/MariadPro/MariadPro-Regular/MyriadPro.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyriadPro-Bold";
+  src: url("../fonts/MariadPro/MyriadPro-Bold/MyriadPro-Bold.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/MariadPro/MyriadPro-Bold/MyriadPro-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
